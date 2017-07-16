@@ -1,0 +1,59 @@
+{
+  "name": "jec-glasscat-cli",
+  "version": "1.0.0",
+  "description": "JEC GlassCat CLI - The command-line user interface for the GlassCat Aplication Server.",
+  "main": "lib/com/onsoft/glasscat/index",
+  "types": "types/jec-glasscat-cli.d.ts",
+  "scripts": {
+    "test": "mocha juta/tiger/run-unit-tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pechemann/jec-glasscat-cli.git"
+  },
+  "keywords": [
+    "JEC",
+    "Glasscat",
+    "CLI",
+    "Node.js",
+    "node",
+    "JavaScript",
+    "TypeScript",
+    "user interface",
+    "command-line"
+  ],
+  "author": "Pascal ECHEMANN",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/pechemann/jec-glasscat-cli/issues"
+  },
+  "homepage": "https://github.com/pechemann/jec-glasscat-cli#readme",
+  "dependencies": {
+    "jec-commons": "^1.1.2",
+    "jec-glasscat-core": "^0.1.1",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.13",
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-jsdoc": "^2.1.0",
+    "grunt-ts": "^6.0.0-beta.15",
+    "grunt-typedoc": "^0.2.4",
+    "mocha": "^3.3.0",
+    "typedoc": "^0.6.0",
+    "typescript": "^2.3.2",
+    "typings": "^2.1.1",
+    "jec-juta": "^1.1.1",
+    "jec-tiger": "^1.1.1"
+  },
+  "peerDependencies": {
+    "jec-commons": "^1.1.2",
+    "jec-glasscat-core": "^0.1.1",
+    "jec-juta": "^1.1.1",
+    "jec-tiger": "^1.1.1"
+  }
+}
