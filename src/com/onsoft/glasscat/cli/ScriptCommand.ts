@@ -18,7 +18,7 @@ import {Logger} from "jec-commons";
 import {CommandDescriptor} from "./core/CommandDescriptor";
 
 /**
- * The __ScriptCommand__ interface defines the API that you must implement to
+ * The <code>ScriptCommand</code> interface defines the API that you must implement to
  * create admin commands for managing GlassCat servers.
  */
 export interface ScriptCommand {
@@ -26,7 +26,6 @@ export interface ScriptCommand {
   /**
    * Executes a Glasscat command.
    * 
-   * @method execute
    * @param {Object} argv the arguments passed to the command to execute.
    * @param {Function} callback the callback method called an the end of the
    *                            process. This function takes an object parameter
@@ -36,17 +35,15 @@ export interface ScriptCommand {
   execute(argv:any, callback:(err:any)=>void):void;
 
   /**
-   * Sets the __Logger__ instance for this command.
+   * Sets the <code>Logger</code> instance for this command.
    * 
-   * @method setLogger
-   * @param {Logger} logger the __Logger__ instance for this command.
+   * @param {Logger} logger the <code>Logger</code> instance for this command.
    */
   setLogger(logger:Logger):void;
 
   /**
    * Returns the help information for this command.
    * 
-   * @method getHelp
    * @param {Object} argv the arguments passed as context for the help
    *                      information to return.
    * @return {CommandDescriptor} an object that represents the help information 

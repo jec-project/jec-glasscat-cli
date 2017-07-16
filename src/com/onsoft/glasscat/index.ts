@@ -16,6 +16,8 @@
 export {AbstractScriptCommand} from "./cli/core/AbstractScriptCommand";
 export {CommandDescriptor} from "./cli/core/CommandDescriptor";
 export {ParameterDescriptor} from "./cli/core/ParameterDescriptor";
+//--> com/onsoft/glasscat/cli/exceptions
+export {GlassCatCliError} from "./cli/exceptions/GlassCatCliError";
 //--> com/onsoft/glasscat/cli/utils
 export {CommandDescriptorBuilder} from "./cli/utils/CommandDescriptorBuilder";
 export {CommandHelpFormatter} from "./cli/utils/CommandHelpFormatter";

@@ -19,12 +19,13 @@ import { expect } from "chai";
 import { ScriptCommand } from "../../../../../src/com/onsoft/glasscat/cli/ScriptCommand";
 import { AbstractScriptCommand } from "../../../../../src/com/onsoft/glasscat/cli/core/AbstractScriptCommand";
 import { CommandManager } from "../../../../../src/com/onsoft/glasscat/cli/CommandManager";
+import { GlassCatCliError } from "../../../../../src/com/onsoft/glasscat/cli/exceptions/GlassCatCliError";
 import { ValidTestCommand } from "../../../../../utils/test-utils/classes/ValidTestCommand";
 import { InvalidTestCommand } from "../../../../../utils/test-utils/classes/InvalidTestCommand";
 import { SingletonError } from "jec-commons";
 
 @TestSuite({
-  description: "Tests the CommandManager class methods."
+  description: "Test the CommandManager class methods."
 })
 export class CommandManagerTest {
 
@@ -55,22 +56,34 @@ export class CommandManagerTest {
   }
   
   @Test({
-    description: "should execute a command whithout error"
+    description: "should execute a command without error"
   })
   public executeValidCommandTest():void {
     let command:ScriptCommand = new ValidTestCommand();
-    CommandManager.getInstance().execute(command, (err:any)=>{
+    CommandManager.getInstance().execute(command, (err:GlassCatCliError)=>{
       expect(err).to.be.null;
     });
   }
 
   @Test({
-    description: "should execute a command whith an error"
+    description: "should throw a GlassCatCliError excption"
+  })
+  public executeInvalidCommandErrorTest():void {
+    let command:ScriptCommand = new InvalidTestCommand();
+    let doExecuteCommand:Function = function():void {
+      CommandManager.getInstance().execute(command);
+    };
+    expect(doExecuteCommand).to.throw(GlassCatCliError);
+  }
+
+  
+  @Test({
+    description: "should throw invoke the callback function  with GlassCatCliError object as parameter"
   })
   public executeInvalidCommandTest():void {
     let command:ScriptCommand = new InvalidTestCommand();
-    CommandManager.getInstance().execute(command, (err:any)=>{
-      expect(err).to.equal("error");
+    CommandManager.getInstance().execute(command, (err:GlassCatCliError)=>{
+      expect(err).to.be.an.instanceOf(GlassCatCliError);
     });
   }
 }

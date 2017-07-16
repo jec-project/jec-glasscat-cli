@@ -20,6 +20,7 @@ import { LoggerManager} from "jec-glasscat-core";
 import * as minimist from "minimist";
 import {CommandHelpFormatter} from "./utils/CommandHelpFormatter";
 import {CommandDescriptor} from "./core/CommandDescriptor";
+import {GlassCatCliError} from "./exceptions/GlassCatCliError";
 
 /**
  * The singleton responsible for running all commands in a GlassCat container.
@@ -35,7 +36,7 @@ export class CommandManager {
    */
   constructor() {
     if(CommandManager._locked || CommandManager.INSTANCE) {
-      new SingletonError(CommandManager);
+      throw new SingletonError(CommandManager);
     } else {
       CommandManager._locked = true;
       let manager:LoggerManager =
@@ -99,7 +100,8 @@ export class CommandManager {
    *                            which represents an error message whether the
    *                            process failed.
    */
-  public execute(command:ScriptCommand, callback?:(err:any)=>void):void {
+  public execute(command:ScriptCommand,
+                                  callback?:(err:GlassCatCliError)=>void):void {
     let formater:CommandHelpFormatter = null;
     let commandDescriptor:CommandDescriptor = null;
     let argv:string[] = process.argv.splice(2);
@@ -131,7 +133,14 @@ export class CommandManager {
           if(err) {
             msg = "command error: name='" + name + "', error='" + err + "'";
             this._logger.error(msg, CommandManager.LOG_CONTEXT);
-            if(callback) callback(err);
+            let error:GlassCatCliError = new GlassCatCliError(
+              msg, err.stack || err.toString()
+            );
+            if(callback) {
+              callback(error);
+            } else {
+              throw error;
+            }
           } else {
             msg = "command success: name='" + name + "'";
             this._logger.info(msg, CommandManager.LOG_CONTEXT);
