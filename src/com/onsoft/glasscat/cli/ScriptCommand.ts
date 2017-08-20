@@ -24,7 +24,7 @@ import {CommandDescriptor} from "./core/CommandDescriptor";
 export interface ScriptCommand {
 
   /**
-   * Executes a Glasscat command.
+   * Executes a GlassCat command.
    * 
    * @param {Object} argv the arguments passed to the command to execute.
    * @param {Function} callback the callback method called an the end of the
