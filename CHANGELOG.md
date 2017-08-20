@@ -1,7 +1,18 @@
 # JEC GlassCat CLI Project: Update Release Notes
 
+<a name="jec-glasscat-cli-1.0.3"></a>
+## **1.0.3** (2017-08-20)
+
+### Bug Fixes
+
+- **postinstall**: removing the post install script
+
+### Features
+
+- **dist**: adding binaries to the `dist` folder
+
 <a name="jec-glasscat-cli-1.0.2"></a>
-## **1.0.1** (2017-08-20)
+## **1.0.2** (2017-08-20)
 
 ### Bug Fixes
 
