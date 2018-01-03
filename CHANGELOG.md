@@ -1,5 +1,14 @@
 # JEC GlassCat CLI Project: Update Release Notes
 
+<a name="jec-glasscat-cli-1.0.5"></a>
+## **1.0.5** (2017-12-26)
+
+### Bug Fixes
+
+### Features
+
+- Dependencies upgrade
+
 <a name="jec-glasscat-cli-1.0.4"></a>
 ## **1.0.4** (2017-09-06)
 
