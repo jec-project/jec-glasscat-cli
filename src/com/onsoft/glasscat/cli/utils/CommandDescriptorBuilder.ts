@@ -47,7 +47,7 @@ export class CommandDescriptorBuilder {
    */
   public build(name:string, description:string,
                           parameters?:ParameterDescriptor[]):CommandDescriptor {
-    let descriptor:CommandDescriptor = new CommandDescriptor();
+    const descriptor:CommandDescriptor = new CommandDescriptor();
     descriptor.name = name;
     descriptor.description = description;
     descriptor.parameters = parameters;

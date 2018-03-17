@@ -4,7 +4,7 @@ const CommandDescriptor_1 = require("../core/CommandDescriptor");
 class CommandDescriptorBuilder {
     constructor() { }
     build(name, description, parameters) {
-        let descriptor = new CommandDescriptor_1.CommandDescriptor();
+        const descriptor = new CommandDescriptor_1.CommandDescriptor();
         descriptor.name = name;
         descriptor.description = description;
         descriptor.parameters = parameters;

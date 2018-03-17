@@ -13,7 +13,7 @@ class CommandManager {
         }
         else {
             CommandManager._locked = true;
-            let manager = jec_glasscat_core_1.LoggerManager.getInstance();
+            const manager = jec_glasscat_core_1.LoggerManager.getInstance();
             this._logger = manager.isInitialized() ? manager : new jec_commons_1.ConsoleLogger();
         }
     }
@@ -25,14 +25,14 @@ class CommandManager {
         return CommandManager.INSTANCE;
     }
     execute(command, callback) {
+        const argv = process.argv.splice(2);
+        const name = command.constructor.name;
+        const args = minimist(argv);
+        const help = args.help || args.h || null;
         let formater = null;
         let commandDescriptor = null;
-        let argv = process.argv.splice(2);
-        let name = command.constructor.name;
         let msg = "running command: name='" +
             name + "', arguments='" + argv + "'";
-        let args = minimist(argv);
-        let help = args.help || args.h || null;
         this._logger.info(msg, CommandManager.LOG_CONTEXT);
         command.setLogger(this._logger);
         if (help) {
@@ -56,7 +56,7 @@ class CommandManager {
                 if (err) {
                     msg = "command error: name='" + name + "', error='" + err + "'";
                     this._logger.error(msg, CommandManager.LOG_CONTEXT);
-                    let error = new GlassCatCliError_1.GlassCatCliError(msg, err.stack || err.toString());
+                    const error = new GlassCatCliError_1.GlassCatCliError(msg, err.stack || err.toString());
                     if (callback) {
                         callback(error);
                     }

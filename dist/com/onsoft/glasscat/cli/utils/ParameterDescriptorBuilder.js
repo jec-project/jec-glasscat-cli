@@ -4,7 +4,7 @@ const ParameterDescriptor_1 = require("../core/ParameterDescriptor");
 class ParameterDescriptorBuilder {
     constructor() { }
     build(name, description, type, required = false) {
-        let descriptor = new ParameterDescriptor_1.ParameterDescriptor();
+        const descriptor = new ParameterDescriptor_1.ParameterDescriptor();
         descriptor.name = name;
         descriptor.description = description;
         descriptor.type = type;

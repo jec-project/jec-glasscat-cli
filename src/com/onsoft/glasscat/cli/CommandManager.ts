@@ -39,7 +39,7 @@ export class CommandManager {
       throw new SingletonError(CommandManager);
     } else {
       CommandManager._locked = true;
-      let manager:LoggerManager =
+      const manager:LoggerManager =
                                  (LoggerManager.getInstance() as LoggerManager);
       this._logger = manager.isInitialized() ? manager : new ConsoleLogger();
     }
@@ -102,14 +102,14 @@ export class CommandManager {
    */
   public execute(command:ScriptCommand,
                                   callback?:(err:GlassCatCliError)=>void):void {
+    const argv:string[] = process.argv.splice(2);
+    const name:string = command.constructor.name;
+    const args:any = minimist(argv);
+    const help:any = args.help || args.h || null;
     let formater:CommandHelpFormatter = null;
     let commandDescriptor:CommandDescriptor = null;
-    let argv:string[] = process.argv.splice(2);
-    let name:string = command.constructor.name;
     let msg:string = "running command: name='" +
-                      name + "', arguments='" + argv + "'";
-    let args:any = minimist(argv);
-    let help:any = args.help || args.h || null;
+                      name + "', arguments='" + argv + "'";     
     this._logger.info(msg, CommandManager.LOG_CONTEXT);
     command.setLogger(this._logger);
     if(help) {
@@ -133,7 +133,7 @@ export class CommandManager {
           if(err) {
             msg = "command error: name='" + name + "', error='" + err + "'";
             this._logger.error(msg, CommandManager.LOG_CONTEXT);
-            let error:GlassCatCliError = new GlassCatCliError(
+            const error:GlassCatCliError = new GlassCatCliError(
               msg, err.stack || err.toString()
             );
             if(callback) {

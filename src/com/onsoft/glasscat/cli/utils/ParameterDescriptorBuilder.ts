@@ -48,7 +48,7 @@ export class ParameterDescriptorBuilder {
    */
   public build(name:string, description:string, type:string,
                                  required:boolean = false):ParameterDescriptor {
-    let descriptor:ParameterDescriptor = new ParameterDescriptor();
+    const descriptor:ParameterDescriptor = new ParameterDescriptor();
     descriptor.name = name;
     descriptor.description = description;
     descriptor.type = type;

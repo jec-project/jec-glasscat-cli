@@ -44,11 +44,11 @@ export class CommandHelpFormatter  {
    * @return {string} the help message for the specified command.
    */
   public format(command:CommandDescriptor):string {
+    const params:ParameterDescriptor[] = command.parameters;
     let msg:string = chalk.blue(`\ncommand: ${command.name}`) +
                      `\n         ${command.description}`;
     let desc:ParameterDescriptor = null;
     let type:string = null;
-    let params:ParameterDescriptor[] = command.parameters;
     if(params) {
       msg += "\n";
       params.forEach((desc:ParameterDescriptor, index:number,

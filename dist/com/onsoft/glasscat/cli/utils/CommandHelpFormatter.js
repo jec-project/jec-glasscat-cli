@@ -4,11 +4,11 @@ const chalk = require("chalk");
 class CommandHelpFormatter {
     constructor() { }
     format(command) {
+        const params = command.parameters;
         let msg = chalk.blue(`\ncommand: ${command.name}`) +
             `\n         ${command.description}`;
         let desc = null;
         let type = null;
-        let params = command.parameters;
         if (params) {
             msg += "\n";
             params.forEach((desc, index, array) => {
