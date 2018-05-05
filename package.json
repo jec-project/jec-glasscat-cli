@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pechemann/jec-glasscat-cli.git"
+    "url": "git+https://github.com/jec-project/jec-glasscat-cli.git"
   },
   "keywords": [
     "JEC",
@@ -25,9 +25,9 @@
   "author": "Pascal ECHEMANN",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/pechemann/jec-glasscat-cli/issues"
+    "url": "https://github.com/jec-project/jec-glasscat-cli/issues"
   },
-  "homepage": "https://github.com/pechemann/jec-glasscat-cli#readme",
+  "homepage": "https://github.com/jec-project/jec-glasscat-cli#readme",
   "dependencies": {
     "jec-commons": "^1.1.8",
     "jec-glasscat-core": "^0.1.5",
