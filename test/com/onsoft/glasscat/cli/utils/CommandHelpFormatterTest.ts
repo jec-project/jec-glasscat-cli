@@ -42,9 +42,9 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains 'command:'"
   })
   public commandTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description
     );
     expect(this.formatter.format(descriptor)).to.include("command:");
@@ -54,9 +54,9 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains the specified name"
   })
   public nameTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description
     );
     expect(this.formatter.format(descriptor)).to.include(name);
@@ -66,9 +66,9 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains the specified description"
   })
   public descriptionTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description
     );
     expect(this.formatter.format(descriptor)).to.include(description);
@@ -78,15 +78,15 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains the specified parameter name"
   })
   public paramNameTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let paramName:string = "fooName";
-    let paramDescription:string = "barName";
-    let type:string = "object";
-    let paramDesc:ParameterDescriptor = this.paramBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const paramName:string = "fooName";
+    const paramDescription:string = "barName";
+    const type:string = "object";
+    const paramDesc:ParameterDescriptor = this.paramBuilder.build(
       paramName, paramDescription, type
     );
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description, [paramDesc]
     );
     expect(this.formatter.format(descriptor)).to.include(paramName);
@@ -96,15 +96,15 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains the specified parameter description"
   })
   public paramDescriptionTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let paramName:string = "fooName";
-    let paramDescription:string = "barName";
-    let type:string = "object";
-    let paramDesc:ParameterDescriptor = this.paramBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const paramName:string = "fooName";
+    const paramDescription:string = "barName";
+    const type:string = "object";
+    const paramDesc:ParameterDescriptor = this.paramBuilder.build(
       paramName, paramDescription, type
     );
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description, [paramDesc]
     );
     expect(this.formatter.format(descriptor)).to.include(paramDescription);
@@ -114,15 +114,15 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains the specified parameter type"
   })
   public paramTypeTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let paramName:string = "fooName";
-    let paramDescription:string = "barName";
-    let type:string = "object";
-    let paramDesc:ParameterDescriptor = this.paramBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const paramName:string = "fooName";
+    const paramDescription:string = "barName";
+    const type:string = "object";
+    const paramDesc:ParameterDescriptor = this.paramBuilder.build(
       paramName, paramDescription, type
     );
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description, [paramDesc]
     );
     expect(this.formatter.format(descriptor)).to.include(type);
@@ -132,15 +132,15 @@ export class CommandHelpFormatterTest {
     description: "should return a string that not contains 'required'"
   })
   public paramRequiredFalseTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let paramName:string = "fooName";
-    let paramDescription:string = "barName";
-    let type:string = "object";
-    let paramDesc:ParameterDescriptor = this.paramBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const paramName:string = "fooName";
+    const paramDescription:string = "barName";
+    const type:string = "object";
+    const paramDesc:ParameterDescriptor = this.paramBuilder.build(
       paramName, paramDescription, type, false
     );
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description, [paramDesc]
     );
     expect(this.formatter.format(descriptor)).to.not.include("required");
@@ -150,15 +150,15 @@ export class CommandHelpFormatterTest {
     description: "should return a string that contains 'required'"
   })
   public paramRequiredTrueTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let paramName:string = "fooName";
-    let paramDescription:string = "barName";
-    let type:string = "object";
-    let paramDesc:ParameterDescriptor = this.paramBuilder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const paramName:string = "fooName";
+    const paramDescription:string = "barName";
+    const type:string = "object";
+    const paramDesc:ParameterDescriptor = this.paramBuilder.build(
       paramName, paramDescription, type, true
     );
-    let descriptor:CommandDescriptor = this.commandBuilder.build(
+    const descriptor:CommandDescriptor = this.commandBuilder.build(
       name, description, [paramDesc]
     );
     expect(this.formatter.format(descriptor)).to.include("required");

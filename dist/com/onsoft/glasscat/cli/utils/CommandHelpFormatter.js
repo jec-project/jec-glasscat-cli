@@ -1,23 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const chalk = require("chalk");
+const chalk_1 = require("chalk");
 class CommandHelpFormatter {
     constructor() { }
     format(command) {
         const params = command.parameters;
-        let msg = chalk.blue(`\ncommand: ${command.name}`) +
+        let msg = chalk_1.default.blue(`\ncommand: ${command.name}`) +
             `\n         ${command.description}`;
-        let desc = null;
         let type = null;
         if (params) {
             msg += "\n";
-            params.forEach((desc, index, array) => {
+            params.forEach((desc) => {
                 type = desc.type;
-                msg += chalk.blue(`\n       --${desc.name}`);
+                msg += chalk_1.default.blue(`\n       --${desc.name}`);
                 if (type)
-                    msg += chalk.green(`\n         type: ${type}`);
+                    msg += chalk_1.default.green(`\n         type: ${type}`);
                 if (desc.required)
-                    msg += chalk.green(" - ") + chalk.red("required");
+                    msg += chalk_1.default.green(" - ") + chalk_1.default.red("required");
                 msg += `\n         ${desc.description}`;
             });
         }

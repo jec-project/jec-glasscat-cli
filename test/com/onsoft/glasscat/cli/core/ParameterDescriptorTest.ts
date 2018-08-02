@@ -15,7 +15,7 @@
 //   limitations under the License.
 
 import { TestSuite, Test, BeforeAll } from "jec-juta";
-import { expect, assert } from "chai";
+import { expect } from "chai";
 import { ParameterDescriptor } from "../../../../../../src/com/onsoft/glasscat/cli/core/ParameterDescriptor";
 
 @TestSuite({

@@ -27,7 +27,7 @@ export class GlassCatCliErrorTest {
     description: "should extend the Error class"
   })
   public typeOfErrorTest():void {
-    let error:GlassCatCliError = new GlassCatCliError(null, null);
+    const error:GlassCatCliError = new GlassCatCliError(null, null);
     expect(error).to.be.an.instanceOf(Error);
   }
   
@@ -35,8 +35,8 @@ export class GlassCatCliErrorTest {
     description: "should return the same message as passed to the constructor function"
   })
   public messageTest():void {
-    let msg:string = "Error message!";
-    let error:GlassCatCliError = new GlassCatCliError(msg, null);
+    const msg:string = "Error message!";
+    const error:GlassCatCliError = new GlassCatCliError(msg, null);
     expect(error.message).to.equal(msg);
   }
   
@@ -44,8 +44,8 @@ export class GlassCatCliErrorTest {
     description: "should return the same error stack as passed to the constructor function"
   })
   public getStackTest():void {
-    let stack:string = "Error stack message";
-    let error:GlassCatCliError = new GlassCatCliError(null, stack);
+    const stack:string = "Error stack message";
+    const error:GlassCatCliError = new GlassCatCliError(null, stack);
     expect(error.getStack()).to.equal(stack);
   }
 }

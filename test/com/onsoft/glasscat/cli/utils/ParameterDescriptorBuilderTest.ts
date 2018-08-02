@@ -44,10 +44,10 @@ export class ParameterDescriptorBuilderTest {
     description: "should return a new ParameterDescriptor instance with built from the specified parameters"
   })
   public buildTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let type:string = "object";
-    let descriptor:ParameterDescriptor = this.builder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const type:string = "object";
+    const descriptor:ParameterDescriptor = this.builder.build(
       name, description, type, true
     );
     expect(descriptor.name).to.equal(name);
@@ -60,10 +60,10 @@ export class ParameterDescriptorBuilderTest {
     description: "should return 'false' when no 'required' parameter is specified"
   })
   public buildNoParameterDescriptorTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let type:string = "object";
-    let descriptor:ParameterDescriptor = this.builder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const type:string = "object";
+    const descriptor:ParameterDescriptor = this.builder.build(
       name, description, type
     );
     expect(descriptor.required).to.be.false;

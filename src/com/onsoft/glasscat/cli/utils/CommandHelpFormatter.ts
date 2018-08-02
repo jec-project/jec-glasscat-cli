@@ -16,7 +16,7 @@
 
 import {CommandDescriptor} from "../core/CommandDescriptor";
 import {ParameterDescriptor} from "../core/ParameterDescriptor";
-import * as chalk from "chalk";
+import chalk from "chalk";
 
 /**
  * A utility class for formatting help messages of the GlassCat commands API.
@@ -47,12 +47,10 @@ export class CommandHelpFormatter  {
     const params:ParameterDescriptor[] = command.parameters;
     let msg:string = chalk.blue(`\ncommand: ${command.name}`) +
                      `\n         ${command.description}`;
-    let desc:ParameterDescriptor = null;
     let type:string = null;
     if(params) {
       msg += "\n";
-      params.forEach((desc:ParameterDescriptor, index:number,
-                                                 array:ParameterDescriptor[])=>{
+      params.forEach((desc:ParameterDescriptor)=> {
         type = desc.type;
         msg += chalk.blue(`\n       --${desc.name}`);
         if(type) msg += chalk.green(`\n         type: ${type}`);

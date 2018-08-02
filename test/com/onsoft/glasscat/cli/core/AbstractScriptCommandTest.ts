@@ -16,7 +16,6 @@
 
 import { TestSuite, Test } from "jec-juta";
 import { expect, assert } from "chai";
-import { AbstractScriptCommand } from "../../../../../../src/com/onsoft/glasscat/cli/core/AbstractScriptCommand";
 import { AbstractScriptCommandImpl } from "../../../../../../utils/test-utils/classes/AbstractScriptCommandImpl";
 import { Logger, ConsoleLogger } from "jec-commons";
 
@@ -29,7 +28,7 @@ export class AbstractScriptCommandTest {
     description: "should return 'null' as default logger value"
   })
   public getLoggerTest():void {
-    let command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
+    const command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
     expect(command.getLogger()).to.be.null;
   }
 
@@ -37,8 +36,8 @@ export class AbstractScriptCommandTest {
     description: "should set a Logger object for the specified command"
   })
   public setLoggerTest():void {
-    let command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
-    let logger:Logger = new ConsoleLogger();
+    const command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
+    const logger:Logger = new ConsoleLogger();
     command.setLogger(logger);
     expect(command.getLogger()).to.equal(logger);
   }
@@ -47,7 +46,7 @@ export class AbstractScriptCommandTest {
     description: "should return 'null' as default logger value"
   })
   public getHelpTest():void {
-    let command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
+    const command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
     expect(command.getHelp({})).to.be.null;
   }
 
@@ -55,11 +54,11 @@ export class AbstractScriptCommandTest {
     description: "should do nothing by default"
   })
   public executeTest():void {
-    let command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
+    const command:AbstractScriptCommandImpl = new AbstractScriptCommandImpl();
     expect(
       command.execute({}, (err:any)=> {
         assert.fail(null, err, "callback should never been called");
       }
-    )).to.be.OK;
+    )).to.be.undefined;
   }
 }

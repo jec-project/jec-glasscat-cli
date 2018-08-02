@@ -17,7 +17,6 @@
 import { TestSuite, Test } from "jec-juta";
 import { expect } from "chai";
 import { ScriptCommand } from "../../../../../src/com/onsoft/glasscat/cli/ScriptCommand";
-import { AbstractScriptCommand } from "../../../../../src/com/onsoft/glasscat/cli/core/AbstractScriptCommand";
 import { CommandManager } from "../../../../../src/com/onsoft/glasscat/cli/CommandManager";
 import { GlassCatCliError } from "../../../../../src/com/onsoft/glasscat/cli/exceptions/GlassCatCliError";
 import { ValidTestCommand } from "../../../../../utils/test-utils/classes/ValidTestCommand";
@@ -33,7 +32,7 @@ export class CommandManagerTest {
     description: "should throw a SingletonError error when calling the constructor function"
   })
   public singletonErrorTest():void {
-    let buildInstance:Function = function():void {
+    const buildInstance:Function = function():void {
       new CommandManager();
     };
     expect(buildInstance).to.throw(SingletonError);
@@ -50,8 +49,8 @@ export class CommandManagerTest {
     description: "should return a singleton reference"
   })
   public validSingletonTest():void {
-    let manager1:CommandManager = CommandManager.getInstance();
-    let manager2:CommandManager = CommandManager.getInstance();
+    const manager1:CommandManager = CommandManager.getInstance();
+    const manager2:CommandManager = CommandManager.getInstance();
     expect(manager1).to.equal(manager2);
   }
   
@@ -59,7 +58,7 @@ export class CommandManagerTest {
     description: "should execute a command without error"
   })
   public executeValidCommandTest():void {
-    let command:ScriptCommand = new ValidTestCommand();
+    const command:ScriptCommand = new ValidTestCommand();
     CommandManager.getInstance().execute(command, (err:GlassCatCliError)=>{
       expect(err).to.be.null;
     });
@@ -69,8 +68,8 @@ export class CommandManagerTest {
     description: "should throw a GlassCatCliError excption"
   })
   public executeInvalidCommandErrorTest():void {
-    let command:ScriptCommand = new InvalidTestCommand();
-    let doExecuteCommand:Function = function():void {
+    const command:ScriptCommand = new InvalidTestCommand();
+    const doExecuteCommand:Function = function():void {
       CommandManager.getInstance().execute(command);
     };
     expect(doExecuteCommand).to.throw(GlassCatCliError);
@@ -81,7 +80,7 @@ export class CommandManagerTest {
     description: "should throw invoke the callback function  with GlassCatCliError object as parameter"
   })
   public executeInvalidCommandTest():void {
-    let command:ScriptCommand = new InvalidTestCommand();
+    const command:ScriptCommand = new InvalidTestCommand();
     CommandManager.getInstance().execute(command, (err:GlassCatCliError)=>{
       expect(err).to.be.an.instanceOf(GlassCatCliError);
     });

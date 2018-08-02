@@ -36,17 +36,19 @@ export class CommandDescriptorBuilderTest {
     description: "should return a CommandDescriptor instance"
   })
   public buildCommandDescriptorTest():void {
-    expect(this.builder.build(null, null)).to.be.an.instanceOf(CommandDescriptor);
+    expect(
+      this.builder.build(null, null)
+    ).to.be.an.instanceOf(CommandDescriptor);
   }
   
   @Test({
     description: "should return a new CommandDescriptor instance with built from the specified parameters"
   })
   public buildTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let params:ParameterDescriptor[] = new Array<ParameterDescriptor>();
-    let descriptor:CommandDescriptor = this.builder.build(
+    const name:string = "foo";
+    const description:string = "bar";
+    const params:ParameterDescriptor[] = new Array<ParameterDescriptor>();
+    const descriptor:CommandDescriptor = this.builder.build(
       name, description, params
     );
     expect(descriptor.name).to.equal(name);
@@ -58,9 +60,9 @@ export class CommandDescriptorBuilderTest {
     description: "should return 'undefined' when no ParameterDescriptor is specified"
   })
   public buildNoParameterDescriptorTest():void {
-    let name:string = "foo";
-    let description:string = "bar";
-    let descriptor:CommandDescriptor = this.builder.build(name, description);
+    const name:string = "foo";
+    const description:string = "bar";
+    const descriptor:CommandDescriptor = this.builder.build(name, description);
     expect(descriptor.parameters).to.be.undefined;
   }
 }
